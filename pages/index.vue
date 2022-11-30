@@ -1,7 +1,11 @@
 <template>
-  <div>Home page </div>
+  <div>Home page</div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+useHead({
+  script: [{ src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }],
+});
+</script>
 
 <style scoped></style>
