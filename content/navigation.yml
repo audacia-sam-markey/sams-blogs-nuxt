@@ -1,0 +1,9 @@
+path: /
+name: home
+items:
+  - name: Home
+    link: /
+  - name: About
+    link: /about
+  - name: Blogs
+    link: /blog
