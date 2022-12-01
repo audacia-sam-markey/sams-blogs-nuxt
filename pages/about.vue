@@ -1,5 +1,5 @@
 <template>
-  <div>About page</div>
+  <ContentDoc />
 </template>
 
 <script setup lang="ts"></script>

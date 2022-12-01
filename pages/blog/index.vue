@@ -1,11 +1,11 @@
 <template>
-  <ul>
-    <li v-for="blog in blogs" :key="blog.id">{{ blog.title }}</li>
-  </ul>
+  <div>
+    <li v-for="blog of blogs" :key="blog.slug">
+      <NuxtLink :to="blog.slug">{{ blog.title }}</NuxtLink>
+    </li>
+  </div>
 </template>
 
 <script setup lang="ts">
-const { data: blogs } = await useAsyncData("blogs", () =>
-  queryContent("/blog").find()
-);
+const blogs = await queryContent("blogs").find();
 </script>

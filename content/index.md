@@ -1,6 +1,6 @@
 ---
-layout: default
-title: "this is a random title"
+navigation:
+  title: "Home"
 ---
 
-# Hello Content
+Homepage

@@ -1,5 +1,7 @@
 <template>
-  <div>Home page</div>
+  <main>
+    <ContentDoc />
+  </main>
 </template>
 
 <script setup>

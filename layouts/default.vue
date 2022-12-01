@@ -1,11 +1,17 @@
 <template>
   <div>
-    <NavigationComponent />
-    Default Layout
+    <header>
+      <h1>Sams Blogs</h1>
+      <Navigation />
+    </header>
     <slot />
   </div>
 </template>
 
-<script setup lang="ts"></script>
-
-<style scoped></style>
+<style lang="scss">
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2rem;
+}
+</style>
