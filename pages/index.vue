@@ -1,9 +1,7 @@
 <template>
-  <main>
-    <h1>{{ homepageData.title }}</h1>
-    <img :src="homepageData.image" alt="" />
-    {{ homepageData.description }}
-  </main>
+  <h1>{{ homepageData.title }}</h1>
+  <img :src="homepageData.image" alt="" />
+  {{ homepageData.description }}
 </template>
 
 <script setup lang="ts">
@@ -18,16 +16,4 @@ const homepageData = homepage[0];
 console.log(homepageData);
 </script>
 
-<style scoped lang="scss">
-main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-
-  img {
-    max-width: 800px;
-  }
-}
-</style>
+<style scoped lang="scss"></style>
