@@ -10,7 +10,7 @@ const navLinksParsed = await navigationLinks[0].items;
         <nuxt-link :to="link.link">{{ link.name }}</nuxt-link>
       </li>
       <li>
-        <a href="./admin"> Admin portal</a>
+        <a href="/admin/"> Admin portal</a>
       </li>
     </ul>
   </nav>
