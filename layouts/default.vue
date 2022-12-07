@@ -1,9 +1,7 @@
 <template>
   <div>
-    <header>
-      <h1>Sams Blogs</h1>
-      <Navigation />
-    </header>
+    <Navigation />
+
     <main>
       <slot />
     </main>
@@ -15,11 +13,7 @@
 body {
   font-family: "Playfair Display", serif;
 }
-header {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 2rem;
-}
+
 main {
   margin: auto;
   display: flex;
@@ -28,6 +22,7 @@ main {
   align-items: center;
   gap: 20px;
   max-width: 1000px;
+  margin-top: calc(100px - 2rem);
 
   img {
     max-width: 800px;

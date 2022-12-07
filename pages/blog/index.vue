@@ -1,15 +1,13 @@
 <template>
-  <NuxtLayout>
-    <h1>My Blogs</h1>
-    <ul>
-      <li v-for="blog of blogs" :key="blog.slug">
-        <NuxtLink :to="blog._path"
-          >{{ blog.title }}
-          <span>{{ convertDateToNiceFormat(blog.date) }}</span>
-        </NuxtLink>
-      </li>
-    </ul>
-  </NuxtLayout>
+  <h1>My Blogs</h1>
+  <ul>
+    <li v-for="blog of blogs" :key="blog.slug">
+      <NuxtLink :to="blog._path"
+        >{{ blog.title }}
+        <span>{{ convertDateToNiceFormat(blog.date) }}</span>
+      </NuxtLink>
+    </li>
+  </ul>
 </template>
 
 <script setup lang="ts">

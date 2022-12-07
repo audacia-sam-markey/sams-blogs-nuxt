@@ -1,9 +1,7 @@
 <template>
-  <NuxtLayout>
-    <h1>{{ content.title }}</h1>
+  <h1>{{ content.title }}</h1>
 
-    <p>{{ content.description }}</p>
-  </NuxtLayout>
+  <p>{{ content.description }}</p>
 </template>
 
 <script setup lang="ts">

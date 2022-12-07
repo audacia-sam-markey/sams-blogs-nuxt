@@ -1,10 +1,7 @@
 <template>
-    <NuxtLayout>
-   
-      <h1>{{ homepageData.title }}</h1>
-      <img :src="homepageData.image" alt="" />
-      {{ homepageData.description }}
-    </NuxtLayout>
+  <h1>{{ homepageData.title }}</h1>
+  <img :src="homepageData.image" alt="" />
+  {{ homepageData.description }}
 </template>
 
 <script setup lang="ts">

@@ -1,11 +1,13 @@
 backend:
   name: git-gateway
   branch: main # Branch to update (optional; defaults to master)
+local_backend: true
 
 media_folder: static/img
 public_folder: /img
 
 collections:
+  # BLOG
   - name: "blog"
     label: "Blog"
     folder: "content/blog"
@@ -19,30 +21,31 @@ collections:
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Description", name: "description", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
-
-  - name: "home page"
-    label: "Home content"
-    folder: "content/home"
+  # FEATURED BLOGS
+  - name: "featured-blogs"
+    label: "Featured Blogs"
     format: "frontmatter"
+    widget: "list"
     create: false
-    slug: "home"
-    editor:
-      preview: false
+    summary: "{{field.blog}}"
     fields:
-      - { label: "Title", name: "title", widget: "string" }
       - {
-          label: "Profile Image",
-          name: "image",
-          widget: "image",
-          default: "https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          label: "Featured Blog",
+          name: "featured-blog",
+          widget: "relation",
+          collection: blog,
+          search_fields: ["title"],
+          value_field: "blog.title",
         }
-      - { label: "Home body", name: "body", widget: "markdown" }
+
+      # ABOUT PAGE
   - name: "about-page"
     label: "About Page Content"
     folder: "content/about"
     format: "frontmatter"
     slug: "About-page-content"
     create: false
+    add_to_top: true
     editor:
       preview: false
     fields:
