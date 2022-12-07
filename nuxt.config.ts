@@ -1,8 +1,8 @@
 export default defineNuxtConfig({
-  ssr: false,
+  // ssr: false,
   modules: ["@nuxt/content"],
   content: {
-    documentDriven: true,
+    // documentDriven: true,
   },
 
   generate: {
