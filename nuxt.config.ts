@@ -1,8 +1,6 @@
 export default defineNuxtConfig({
   modules: ["@nuxt/content"],
-  content: {
-    documentDriven: true,
-  },
+  content: {},
   generate: {
     exclude: [
       /^\/admin/, // path starts with /admin
