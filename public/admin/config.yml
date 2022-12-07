@@ -26,8 +26,11 @@ collections:
     label: "Featured Blogs"
     format: "frontmatter"
     widget: "list"
-    create: false
+    file: "content/featured-blogs.yml"
+    create: true
     summary: "{{field.blog}}"
+    editor:
+      preview: false
     fields:
       - {
           label: "Featured Blog",
@@ -38,7 +41,7 @@ collections:
           value_field: "blog.title",
         }
 
-      # ABOUT PAGE
+  # ABOUT PAGE
   - name: "about-page"
     label: "About Page Content"
     folder: "content/about"
