@@ -4,6 +4,8 @@ export default defineNuxtConfig({
     documentDriven: true,
   },
   generate: {
-    exclude: ["public/admin", "admin"],
+    exclude: [
+      /^\/admin/, // path starts with /admin
+    ],
   },
 });
