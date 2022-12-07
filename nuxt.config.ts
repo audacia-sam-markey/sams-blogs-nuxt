@@ -4,6 +4,6 @@ export default defineNuxtConfig({
     documentDriven: true,
   },
   generate: {
-    exclude: ["public/admin"],
+    exclude: ["public/admin", "admin"],
   },
 });
