@@ -1,6 +1,8 @@
 <template>
-  <main>
-    This is a blog
-    <ContentDoc slot="default" />
-  </main>
+  <NuxtLayout>
+    <main>
+      This is a blog
+      <ContentDoc slot="default" />
+    </main>
+  </NuxtLayout>
 </template>
