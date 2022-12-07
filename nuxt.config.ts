@@ -3,4 +3,7 @@ export default defineNuxtConfig({
   content: {
     documentDriven: true,
   },
+  generate: {
+    exclude: ["/admin"],
+  },
 });
