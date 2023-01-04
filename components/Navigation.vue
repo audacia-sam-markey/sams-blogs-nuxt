@@ -12,14 +12,14 @@ const navLinksParsed = await navigationLinks[0].items;
           <nuxt-link :to="link.link">{{ link.name }}</nuxt-link>
         </li>
         <li>
-          <a href="./admin/"> Admin portal</a>
+          <a href="/admin/"> Admin portal</a>
         </li>
       </ul>
     </nav>
   </header>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 header {
   display: flex;
   justify-content: space-between;
@@ -28,10 +28,10 @@ header {
   top: 0;
   width: 100%;
   left: 0;
-  height: 100px;
   background-color: var(--background-color);
   box-shadow: 0 0px 4px 0px rgba($color: #000000, $alpha: 0.1);
   padding: 0 2rem;
+  z-index: 10;
   h1 {
     font-size: 64px;
   }

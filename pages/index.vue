@@ -1,19 +1,41 @@
 <template>
-  <h1>{{ homepageData.title }}</h1>
-  <img :src="homepageData.image" alt="" />
-  {{ homepageData.description }}
+  <main v-if="blogsWhichAreFeatured.length">
+    <BlogsFeatured
+      v-for="blog in blogsWhichAreFeatured"
+      :key="blog._id"
+      :blog="new Blog(blog).blogDetails"
+    />
+  </main>
 </template>
 
 <script setup lang="ts">
+import { ParsedContent } from "@nuxt/content/dist/runtime/types";
+import { Blog } from "~~/models/interfaces/blog.model";
+
 useHead({
   script: [
     { src: "https://identity.netlify.com/v1/netlify-identity-widget.js" },
   ],
 });
-let [...homepage] = await queryContent("/home").limit(1).find();
+const featuredBlogs = await queryContent("featured-blogs").find();
 
-const homepageData = homepage[0];
-console.log(homepageData);
+const featuredBlogList = featuredBlogs[0]["featured-blogs"];
+const blogsWhichAreFeatured: ParsedContent[] = (
+  await queryContent("/blog").find()
+).filter((blog) => {
+  return featuredBlogList.find((featuredBlog: { "featured-blog-id": string }) =>
+    blog._file?.includes(featuredBlog["featured-blog-id"])
+  );
+});
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+main {
+  display: grid;
+  flex-wrap: wrap;
+  width: 100%;
+  grid-template-columns: 0.6fr 1fr 0.6fr;
+  align-items: flex-start;
+  gap: 60px;
+}
+</style>

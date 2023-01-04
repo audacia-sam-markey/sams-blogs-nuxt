@@ -50,8 +50,7 @@ ul {
     }
 
     &:hover {
-      transform: rotate(3deg) translateY(5px) scale(1.2);
-      transform-origin: bottom center;
+      transform: scale(1.05);
     }
   }
 }

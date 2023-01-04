@@ -21,7 +21,7 @@ main {
   justify-content: center;
   align-items: center;
   gap: 20px;
-  max-width: 1000px;
+  max-width: 1800px;
   margin-top: calc(100px - 2rem);
 
   img {

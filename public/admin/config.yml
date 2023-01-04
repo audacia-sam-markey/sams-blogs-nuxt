@@ -2,7 +2,6 @@ backend:
   name: git-gateway
   branch: main # Branch to update (optional; defaults to master)
 local_backend: true
-
 media_folder: static/img
 public_folder: /img
 
@@ -19,33 +18,116 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Description", name: "description", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - {
+          label: "Body",
+          name: "body",
+          widget: "markdown",
+          sanitize_preview: true,
+        }
+      - {
+          label: "Introduction",
+          name: "introduction",
+          widget: "text",
+          # pattern:
+          #   [
+          #     "^.(\\/s?.){200,400}",
+          #     "Must have at least 200 characters and not go over 400 characters",
+          #   ],
+        }
+      - {
+          label: "Blog Category",
+          name: "categories",
+          widget: "relation",
+          collection: "categorys",
+          search_fields: ["category-name"],
+          value_field: "category-name",
+          display_fields: ["category-name"],
+        }
+      - {
+          label: "Author",
+          name: "author",
+          widget: "relation",
+          collection: "authors",
+          search_fields: ["display-name"],
+          value_field: "{{slug}}",
+          display_fields: ["display-name"],
+        }
+      - {
+          label: "Thumbnail",
+          name: "thumbnail",
+          widget: "image",
+          allow_multiple: false,
+        }
+      - {
+          label: "Blog Image",
+          name: "image",
+          widget: "image",
+          allow_multiple: false,
+        }
+
   # FEATURED BLOGS
-  - name: "featured-blogs"
-    label: "Featured Blogs"
-    format: "frontmatter"
+
+  - label: "Featured blogs"
+    name: "featured-blogs"
+    files:
+      - label: "Blogs to feature"
+        name: "blogs-to-feature"
+        file: "content/featured-blogs.json"
+        create: true
+        editor:
+          preview: false
+        fields:
+          - label: "Featured blogs List"
+            name: "featured-blogs"
+            widget: "list"
+            fields:
+              - {
+                  label: "Blog To Feature",
+                  name: "featured-blog-id",
+                  collection: "blog",
+                  widget: "relation",
+                  search_fields: ["title"],
+                  value_field: "{{slug}}",
+                  display_fields: ["title"],
+                }
+  #  Blog categories
+  - label: "Blog Categorys"
+    name: "categorys"
+    folder: "content/categorys"
     widget: "list"
-    file: "content/featured-blogs.yml"
     create: true
-    summary: "{{field.blog}}"
     editor:
       preview: false
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
+      - { label: "Category name", name: "category-name", widget: "string" }
+  # Authors
+  - label: "Authors"
+    name: "authors"
+    folder: "content/authors"
+    frontmatter: true
+    create: true
+    allow_add: true
+    add_to_top: true
+    identifier_field: display-name
+    editor:
+      preview: false
+    slug: "{{year}}-{{month}}-{{day}}-{{minute}}-{{second}}-{{slug}}"
+    fields:
+      - { label: "Firstname", name: "name", widget: "string" }
+      - { label: "Display Name", name: "display-name", widget: "string" }
+      - { label: "Position", name: "position", widget: "string" }
       - {
-          label: "Featured Blog",
-          name: "featured-blog",
-          widget: "relation",
-          collection: blog,
-          search_fields: ["title"],
-          value_field: "blog.title",
+          label: "About Me",
+          name: "body",
+          widget: "markdown",
+          sanitize_preview: true,
         }
 
   # ABOUT PAGE
   - name: "about-page"
     label: "About Page Content"
     folder: "content/about"
-    format: "frontmatter"
     slug: "About-page-content"
     create: false
     add_to_top: true
@@ -53,8 +135,13 @@ collections:
       preview: false
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "About me Body", name: "body", widget: "markdown" }
-
+      - {
+          label: "About me Body",
+          name: "body",
+          widget: "markdown",
+          sanitize_preview: true,
+        }
+  # NAVIGATION
   - label: "Navigation Links"
     name: "navigation-links"
     files:
