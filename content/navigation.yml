@@ -3,7 +3,7 @@ name: home
 items:
   - name: Home
     link: /
-  - name: About
+  - name: About Us
     link: /about
   - name: Blogs
     link: /blog

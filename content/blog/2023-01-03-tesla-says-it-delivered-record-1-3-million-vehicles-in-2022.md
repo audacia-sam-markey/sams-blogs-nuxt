@@ -9,7 +9,7 @@ introduction: Christmas dinner is a traditional holiday meal typically served on
   come together and celebrate the holiday season. It is a special meal that is
   often filled with love, laughter, and good cheer.
 categories: Food
-author: 2023-01-04-44-59
+author: sam-markey
 thumbnail: https://images.pexels.com/photos/5779177/pexels-photo-5779177.jpeg?auto=compress&cs=tinysrgb&w=600
 image: https://cdn.pixabay.com/photo/2014/04/05/11/19/turkey-315079_960_720.jpg
 ---

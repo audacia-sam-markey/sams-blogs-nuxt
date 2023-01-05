@@ -6,7 +6,7 @@ introduction: Chocolate brownies are a classic dessert that are loved by people
   texture. Chocolate brownies are made with a mixture of butter, sugar, eggs,
   and flour, along with cocoa powder for a deep, chocolate flavour.
 categories: Baking
-author: 2023-01-04-44-59
+author: susan-smith
 thumbnail: https://images.pexels.com/photos/4555505/pexels-photo-4555505.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1
 image: https://images.pexels.com/photos/5386671/pexels-photo-5386671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1
 ---

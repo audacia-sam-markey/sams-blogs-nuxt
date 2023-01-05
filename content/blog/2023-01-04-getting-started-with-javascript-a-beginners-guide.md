@@ -8,7 +8,7 @@ introduction: JavaScript is a programming language that is commonly used to
   development and is used to create interactive elements on websites, like
   forms, menus, and games.
 categories: Tech
-author: 2023-01-04-41-41
+author: sam-markey
 thumbnail: https://images.pexels.com/photos/4164418/pexels-photo-4164418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1
 image: https://images.pexels.com/photos/2004161/pexels-photo-2004161.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1
 ---

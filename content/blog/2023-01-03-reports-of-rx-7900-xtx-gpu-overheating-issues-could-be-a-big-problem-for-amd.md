@@ -7,7 +7,7 @@ introduction: Computer hardware refers to the physical parts of a computer
   to allow a computer to function. Some examples of computer hardware include
   input devices, output devices, and storage devices.
 categories: Tech
-author: 2023-01-04-43-17
+author: darren-stables
 thumbnail: https://images.pexels.com/photos/1432675/pexels-photo-1432675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1
 image: https://cdn.pixabay.com/photo/2019/08/08/16/54/cpu-4393376_960_720.jpg
 ---

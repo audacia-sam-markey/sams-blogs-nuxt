@@ -1,6 +1,6 @@
 <template>
   <main v-if="blogsWhichAreFeatured.length">
-    <BlogsFeatured
+    <BlogsFeaturedLink
       v-for="blog in blogsWhichAreFeatured"
       :key="blog._id"
       :blog="new Blog(blog).blogDetails"
@@ -31,6 +31,7 @@ const blogsWhichAreFeatured: ParsedContent[] = (
 
 <style scoped lang="scss">
 main {
+  overflow: hidden;
   display: grid;
   flex-wrap: wrap;
   width: 100%;

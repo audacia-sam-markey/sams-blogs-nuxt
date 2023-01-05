@@ -4,4 +4,5 @@ export interface IAuthor {
   body: object;
   position: string;
   _path: string;
+  profilePicture: string;
 }

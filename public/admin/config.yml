@@ -1,7 +1,7 @@
 backend:
   name: git-gateway
   branch: main # Branch to update (optional; defaults to master)
-# local_backend: true
+local_backend: true
 media_folder: static/img
 public_folder: /img
 
@@ -112,10 +112,16 @@ collections:
     identifier_field: display-name
     editor:
       preview: false
-    slug: "{{year}}-{{month}}-{{day}}-{{minute}}-{{second}}-{{slug}}"
+    slug: "{{display-name}}"
     fields:
       - { label: "Firstname", name: "name", widget: "string" }
       - { label: "Display Name", name: "display-name", widget: "string" }
+      - {
+          label: "Profile Picture",
+          name: "profile-picture",
+          widget: "image",
+          allow_multiple: false,
+        }
       - { label: "Position", name: "position", widget: "string" }
       - {
           label: "About Me",

@@ -8,7 +8,7 @@ introduction: The universe is the vast expanse of space that contains all matter
   new things about it. Despite all that we know about the universe, there is
   still so much more to learn and explore.
 categories: Science
-author: 2023-01-04-41-41
+author: john-jones
 thumbnail: https://images.pexels.com/photos/4254548/pexels-photo-4254548.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1
 image: https://images.pexels.com/photos/1142950/pexels-photo-1142950.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1
 ---

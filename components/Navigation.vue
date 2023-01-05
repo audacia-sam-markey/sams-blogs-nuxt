@@ -33,7 +33,8 @@ header {
   padding: 0 2rem;
   z-index: 10;
   h1 {
-    font-size: 64px;
+    font-size: 48px;
+    letter-spacing: 2px;
   }
   .navigation {
     right: 25px;

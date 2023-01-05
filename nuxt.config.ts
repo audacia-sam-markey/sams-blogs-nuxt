@@ -1,5 +1,5 @@
 export default defineNuxtConfig({
-  css: ["~/assets/base.css"],
+  css: ["~/assets/base.scss"],
   // ssr: false,
   modules: ["@nuxt/content"],
   content: {

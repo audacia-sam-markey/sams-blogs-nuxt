@@ -11,6 +11,7 @@ export class Author {
       displayName: authorDetails["display-name"],
       name: authorDetails.name,
       position: authorDetails.position,
+      profilePicture: authorDetails["profile-picture"],
     };
   }
 }
