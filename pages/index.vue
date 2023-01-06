@@ -1,11 +1,11 @@
 <template>
-  <!-- <main v-if="blogsWhichAreFeatured.length">
+  <main v-if="blogsWhichAreFeatured.length">
     <BlogsFeaturedLink
       v-for="blog in blogsWhichAreFeatured"
       :key="blog._id"
       :blog="new Blog(blog).blogDetails"
-    /> -->
-  <!-- </main> -->
+    />
+  </main>
 </template>
 
 <script setup lang="ts">
@@ -20,13 +20,13 @@ useHead({
 const featuredBlogs = await queryContent("featured-blogs").find();
 
 const featuredBlogList = featuredBlogs[0]["featured-blogs"];
-// const blogsWhichAreFeatured: ParsedContent[] = (
-//   await queryContent("/blog").find()
-// ).filter((blog) => {
-//   return featuredBlogList.find((featuredBlog: { "featured-blog-id": string }) =>
-//     blog._file?.includes(featuredBlog["featured-blog-id"])
-//   );
-// });
+const blogsWhichAreFeatured: ParsedContent[] = (
+  await queryContent("/blog").find()
+).filter((blog) => {
+  return featuredBlogList.find((featuredBlog: { "featured-blog-id": string }) =>
+    blog._file?.includes(featuredBlog["featured-blog-id"])
+  );
+});
 </script>
 
 <style scoped lang="scss">

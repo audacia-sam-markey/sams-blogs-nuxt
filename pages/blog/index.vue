@@ -2,7 +2,7 @@
   <h1>Blogs</h1>
 
   <div class="blogs-container">
-    <!-- <BlogsLink :blog="blog" v-for="blog in blogs" :key="blog._path" /> -->
+    <BlogsLink :blog="blog" v-for="blog in blogs" :key="blog._path" />
   </div>
 </template>
 
@@ -14,12 +14,11 @@ import { Blog } from "~~/models/interfaces/blog.model";
 
 const { getContent, contentArray } = useLoadAllContent("/blog");
 getContent();
-
-// const blogs: ComputedRef<IBlog[]> = computed(() =>
-//   contentArray.value.map(
-//     (content: ParsedContent) => new Blog(content).blogDetails
-//   )
-// );
+const blogs: ComputedRef<IBlog[]> = computed(() =>
+  contentArray.value.map(
+    (content: ParsedContent) => new Blog(content).blogDetails
+  )
+);
 </script>
 
 <style scoped lang="scss"></style>
