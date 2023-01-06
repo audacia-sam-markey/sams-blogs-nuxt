@@ -6,8 +6,8 @@
       <h1>{{ blog.title }}</h1>
     </nuxt-link>
     <span class="description">{{ blog.introduction }}</span>
-    <author-link :author-slug="blog.author" />
-    <span>Date Published: {{ useFormatDate(blog.date.toString()) }}</span>
+    <!-- <author-link v-if="blog.author" :author-slug="blog.author" /> -->
+    <span>Date Published: {{ formattedDate }}</span>
     <span>#{{ blog.categories }}</span>
   </article>
 </template>
@@ -18,6 +18,7 @@ import { IBlog } from "~~/models/blog.interface";
 const props = defineProps({
   blog: { required: true, type: Object as PropType<IBlog> },
 });
+const formattedDate: string = useFormatDate(props.blog.date.toString());
 </script>
 
 <style scoped lang="scss">

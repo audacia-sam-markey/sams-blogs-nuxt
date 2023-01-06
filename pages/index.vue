@@ -1,15 +1,17 @@
 <template>
-  <main v-if="blogsWhichAreFeatured.length">
+  <main v-if="featuredBlogs">
     <BlogsFeaturedLink
-      v-for="blog in blogsWhichAreFeatured"
-      :key="blog._id"
-      :blog="new Blog(blog).blogDetails"
+      v-for="blog in featuredBlogs"
+      :key="blog._path"
+      :blog="blog"
     />
   </main>
 </template>
 
 <script setup lang="ts">
 import { ParsedContent } from "@nuxt/content/dist/runtime/types";
+import { ComputedRef, Ref } from "vue";
+import { IBlog } from "~~/models/blog.interface";
 import { Blog } from "~~/models/interfaces/blog.model";
 
 useHead({
@@ -17,16 +19,28 @@ useHead({
     { src: "https://identity.netlify.com/v1/netlify-identity-widget.js" },
   ],
 });
-const featuredBlogs = await queryContent("featured-blogs").find();
 
-const featuredBlogList = featuredBlogs[0]["featured-blogs"];
-const blogsWhichAreFeatured: ParsedContent[] = (
-  await queryContent("/blog").find()
-).filter((blog) => {
-  return featuredBlogList.find((featuredBlog: { "featured-blog-id": string }) =>
-    blog._file?.includes(featuredBlog["featured-blog-id"])
-  );
+const featuredBlogs: Ref<IBlog[]> = ref([]);
+const { getContent, contentArray } = useLoadAllContent("/featured-blogs");
+getContent();
+
+const featuredBlogList: ComputedRef<string[]> = computed((): string[] => {
+  if (contentArray.value[0]) {
+    return contentArray.value[0]["featured-blogs"].map(
+      (featuredBlog: ParsedContent) => featuredBlog["featured-blog-id"]
+    );
+  }
+  return [];
 });
+watch(featuredBlogList, () => getFeaturedBlogs());
+
+async function getFeaturedBlogs(): Promise<void> {
+  featuredBlogs.value = (
+    await queryContent("/blog")
+      .where({ _file: { $containsAny: featuredBlogList.value } })
+      .find()
+  ).map((parsedContent) => new Blog(parsedContent).blogDetails);
+}
 </script>
 
 <style scoped lang="scss">

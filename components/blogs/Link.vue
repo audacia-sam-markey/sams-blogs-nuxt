@@ -5,7 +5,7 @@
       {{ blog.title }}
     </h5>
 
-    <AuthorLink :author-slug="blog.author" />
+    <!-- <AuthorLink v-if="blog.author" :author-slug="blog.author" /> -->
     <span>{{ useFormatDate(blog.date.toString()) }}</span>
   </NuxtLink>
 </template>

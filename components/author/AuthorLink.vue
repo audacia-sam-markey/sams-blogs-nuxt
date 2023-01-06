@@ -1,12 +1,12 @@
 <template>
-  <span
+  <span v-if="author"
     >Written By
     <nuxt-link :to="author._path">{{ author.displayName }}</nuxt-link>
   </span>
 </template>
 
 <script setup lang="ts">
-import { Ref } from "vue";
+import { ComputedRef } from "vue";
 import { Author } from "~~/models/author.model";
 import { IAuthor } from "~~/models/interfaces/author.interface";
 
@@ -16,10 +16,17 @@ const props = defineProps({
     type: String,
   },
 });
-const author: Ref<IAuthor> = ref(
-  new Author(await queryContent("/authors", props.authorSlug).findOne())
-    .authorDetails
+const { getContent, parsedContent } = useLoadOneContent(
+  "/authors",
+  props.authorSlug
 );
+getContent();
+const author: ComputedRef<IAuthor | null> = computed(() => {
+  if (parsedContent.value) {
+    return new Author(parsedContent.value).authorDetails;
+  }
+  return null;
+});
 </script>
 
 <style scoped lang="scss">
