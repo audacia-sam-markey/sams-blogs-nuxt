@@ -9,7 +9,7 @@
       <ContentDoc :v-slot="author.body" />
     </article>
 
-    <main v-if="blogs.length">
+    <!-- <main v-if="blogs.length">
       <h2>
         <div class="line"></div>
         <span> Blogs Written By {{ author.name }} </span>
@@ -18,7 +18,7 @@
       <div class="blogs-container author-blog-container" v-if="blogs.length">
         <BlogsLink v-for="blog in blogs" :key="blog._path" :blog="blog" />
       </div>
-    </main>
+    </main> -->
   </div>
 </template>
 
@@ -30,8 +30,8 @@ const authorDetails = await queryContent(
   route.params.slug as string
 ).findOne();
 const author = ref(new Author(authorDetails).authorDetails);
-const { blogs, getBlogs } = useLoadBlogsByAuthor(route.params.slug as string);
-getBlogs();
+// const { blogs, getBlogs } = useLoadBlogsByAuthor(route.params.slug as string);
+// getBlogs();
 </script>
 
 <style scoped lang="scss">
