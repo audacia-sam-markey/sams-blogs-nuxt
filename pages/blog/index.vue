@@ -1,7 +1,7 @@
 <template>
   <h1>Blogs</h1>
 
-  <div class="blogs-container">
+  <div class="grid-container">
     <BlogsLink :blog="blog" v-for="blog in blogs" :key="blog._path" />
   </div>
 </template>
@@ -12,10 +12,10 @@ import { ComputedRef } from "vue";
 import { IBlog } from "~~/models/blog.interface";
 import { Blog } from "~~/models/interfaces/blog.model";
 
-const { getContent, contentArray } = useLoadAllContent("/blog");
+const { getContent, parsedContentArray } = useLoadAllContent("/blog");
 getContent();
 const blogs: ComputedRef<IBlog[]> = computed(() =>
-  contentArray.value.map(
+  parsedContentArray.value.map(
     (content: ParsedContent) => new Blog(content).blogDetails
   )
 );

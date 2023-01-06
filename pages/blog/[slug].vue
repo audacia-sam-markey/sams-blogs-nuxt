@@ -2,7 +2,7 @@
   <main class="blog-container" v-if="blog">
     <div class="headers">
       <h1>{{ blog.title }}</h1>
-      <span> Published on {{ useFormatDate(blog.date.toString()) }} </span>
+      <span> Published on {{ useFormatDate(blog.date.toString()) }} | <AuthorLink :author-slug="blog.author"/> </span>
     </div>
     <img :src="blog.image" alt="Picture of the blogging image" />
     <div class="content">
@@ -42,11 +42,13 @@
         font-weight: 600;
       }
     }
-    ol {
+    ol,
+    ul {
       padding-left: 30px;
       display: flex;
       flex-direction: column;
       gap: 20px;
+      list-style-position: inside;
       li {
         font-size: 1.1rem;
       }

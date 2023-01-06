@@ -15,8 +15,13 @@
         <span> Blogs Written By {{ author.name }} </span>
         <div class="line"></div>
       </h2>
-      <div class="blogs-container author-blog-container" v-if="blogs.length">
-        <BlogsLink v-for="blog in blogs" :key="blog._path" :blog="blog" />
+      <div class="grid-container author-blog-container" v-if="blogs.length">
+        <BlogsLink
+          v-for="blog in blogs"
+          :key="blog._path"
+          :blog="blog"
+          :hide-author-link="true"
+        />
       </div>
     </main>
   </div>
@@ -26,7 +31,7 @@
 import { Author } from "~~/models/author.model";
 const route = useRoute();
 const authorDetails = await queryContent(
-  "/authors",
+  "/author",
   route.params.slug as string
 ).findOne();
 const author = ref(new Author(authorDetails).authorDetails);

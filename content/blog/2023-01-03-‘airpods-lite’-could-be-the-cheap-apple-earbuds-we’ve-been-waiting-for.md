@@ -7,7 +7,7 @@ introduction: Chocolate chip cookies are a classic dessert that are enjoyed by
   brown. Chocolate chip cookies are soft and chewy, with a delicious chocolate
   flavor. They can be enjoyed on their own or with a cold glass of milk.
 categories: Baking
-author: john-jones
+author: darren-stables
 thumbnail: https://cdn.pixabay.com/photo/2016/05/04/19/05/cookies-1372607__340.jpg
 image: https://images.pexels.com/photos/5847088/pexels-photo-5847088.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1
 ---

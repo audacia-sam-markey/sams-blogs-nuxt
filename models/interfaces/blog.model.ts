@@ -1,5 +1,5 @@
 import { ParsedContent } from "@nuxt/content/dist/runtime/types";
-import { IBlog } from "./../blog.interface";
+import { IBlog } from "../../blog.interface";
 export class Blog {
   blogDetails: IBlog;
 

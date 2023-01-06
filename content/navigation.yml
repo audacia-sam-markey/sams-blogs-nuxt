@@ -8,4 +8,6 @@ items:
   - name: Blogs
     link: /blog
   - name: Authors
-    link: /authors
+    link: /author
+  - name: Categories
+    link: /categories

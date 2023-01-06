@@ -6,7 +6,7 @@
       <h1>{{ blog.title }}</h1>
     </nuxt-link>
     <span class="description">{{ blog.introduction }}</span>
-    <!-- <author-link v-if="blog.author" :author-slug="blog.author" /> -->
+    <author-link v-if="blog.author" :author-slug="blog.author" />
     <span>Date Published: {{ formattedDate }}</span>
     <span>#{{ blog.categories }}</span>
   </article>

@@ -1,21 +1,25 @@
 <template>
-  <NuxtLink class="blog-link-container" :to="props.blog._path">
+  <NuxtLink class="grid-link-container" :to="props.blog._path">
     <img :src="blog.thumbnail" alt="" />
     <h5>
       {{ blog.title }}
     </h5>
 
-    <!-- <AuthorLink v-if="blog.author" :author-slug="blog.author" /> -->
+    <AuthorLink
+      v-if="blog.author && !hideAuthorLink"
+      :author-slug="blog.author"
+    />
     <span>{{ useFormatDate(blog.date.toString()) }}</span>
   </NuxtLink>
 </template>
 
 <script setup lang="ts">
 import { PropType } from "vue";
-import { IBlog } from "../../models/blog.interface";
+import { IBlog } from "~~/models/blog.interface";
 
 const props = defineProps({
   blog: { required: true, type: Object as PropType<IBlog> },
+  hideAuthorLink: { required: false, type: Boolean },
 });
 </script>
 

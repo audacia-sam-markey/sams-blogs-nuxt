@@ -2,7 +2,7 @@
   <h1>Out Writing Team</h1>
 
   <main>
-    <div v-for="author in contentArray" :key="author._path">
+    <div v-for="author in parsedContentArray" :key="author._path">
       <nuxt-link :to="author._path">
         {{ author["display-name"] }}
       </nuxt-link>
@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-const { getContent, contentArray } = useLoadAllContent("/authors");
+const { getContent, parsedContentArray } = useLoadAllContent("/author");
 getContent();
 </script>
 
