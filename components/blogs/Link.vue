@@ -21,7 +21,6 @@ const props = defineProps({
   blog: { required: true, type: Object as PropType<IBlog> },
   hideAuthorLink: { required: false, type: Boolean },
 });
-console.log(props.blog.image);
 </script>
 
 <style scoped lang="scss">
