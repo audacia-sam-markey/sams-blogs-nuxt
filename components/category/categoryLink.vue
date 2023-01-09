@@ -1,13 +1,9 @@
 <template>
-  <span v-if="author"
-    >Written By
-    <nuxt-link :to="author._path">{{ author.displayName }}</nuxt-link>
-  </span>
+
 </template>
 
 <script setup lang="ts">
 import { ComputedRef } from "vue";
-import { NuxtLink } from "~~/.nuxt/components";
 import { Author } from "~~/models/author.model";
 import { IAuthor } from "~~/models/interfaces/author.interface";
 

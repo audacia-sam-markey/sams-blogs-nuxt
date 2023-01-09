@@ -1,6 +1,7 @@
 <script lang="ts" setup>
-const navigationLinks = await queryContent("navigation").find();
-const navLinksParsed = await navigationLinks[0].items;
+const { getContent, parsedContentArray } = useLoadAllContent("navigation");
+await getContent();
+const navLinksParsed = await parsedContentArray.value[0].items;
 </script>
 
 <template>

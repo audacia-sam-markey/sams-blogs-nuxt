@@ -15,7 +15,10 @@ export function useLoadAllContent(
         .where(whereFilter)
         .find();
     } else {
+      console.log(contentPath);
+
       parsedContentArray.value = await queryContent(contentPath).find();
+      console.log(parsedContentArray.value);
     }
   };
 
